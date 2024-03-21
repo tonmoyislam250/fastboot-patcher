@@ -19,11 +19,12 @@ jobs:
     
     - name: Fetch necessary packages
       run: |
-         sudo apt install git wget lz4 tar openssl python3 -y
+         sudo apt install git wget lz4 tar openssl python3 python3-pip -y
+         pip install gdown
          
     - name: Download recovery image from URL
       run: |
-         wget ${{github.event.inputs.image_url}}
+         gdown ${{github.event.inputs.image_url}}
 
     - name: Start patching script
       run: |
